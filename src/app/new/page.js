@@ -1,15 +1,20 @@
 'use client'
 import { useState } from 'react'
+import { useTasks } from '@/context/TasksContext'
+import { useRouter } from 'next/navigation'
 
 const Page = () => {
   const [task, setTask] = useState()
+  const { createTask } = useTasks()
+ const router = useRouter()
 
   const handleChange = (e) =>
     setTask({ ...task, [e.target.name]: e.target.value })
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(task)
+      createTask(task.title, task.description)
+      router.push('/')
     }
   return (
     <form onSubmit={handleSubmit}>
