@@ -1,8 +1,9 @@
-import React from 'react'
 import { useRouter } from 'next/navigation'
+import { useTasks } from '@/context/TasksContext'
 
 const TaskCard = ({ task }) => {
   const router = useRouter()
+  const { deleteTask } = useTasks()
   return (
     <div
       onClick={() => {
@@ -10,7 +11,14 @@ const TaskCard = ({ task }) => {
       }}
     >
       <h1>{task.title}</h1>
-      <button>Delete</button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation()
+          deleteTask(task.id)
+        }}
+      >
+        Delete
+      </button>
       <p>{task.description}</p>
     </div>
   )
