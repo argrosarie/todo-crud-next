@@ -1,9 +1,3 @@
-import React from 'react'
+import NewFormPage from "../../new/page"
 
-const page = ({params}) => {
-  return (
-    <div>page id number: {params.id}</div>
-  )
-}
-
-export default page
+export default NewFormPage
