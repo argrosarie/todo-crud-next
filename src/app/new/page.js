@@ -8,7 +8,8 @@ const Page = ({ params }) => {
     title: '',
     description: '',
   })
-  const { tasks, createTask } = useTasks()
+  const { tasks, createTask, updateTask } = useTasks()
+  const router = useRouter()
   console.log(params)
 
   const handleChange = (e) =>
@@ -17,18 +18,19 @@ const Page = ({ params }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (params.id) {
-      console.log('editing')
+      updateTask(params.id, task)
     } else {
       createTask(task.title, task.description)
     }
 
-    router.push('/')
+    router.push("/")
   }
 
   useEffect(() => {
     if (params.id) {
       const taskFound = tasks.find((task) => task.id === params.id)
-      if (taskFound) setTask(taskFound.title, taskFound.description)
+      if (taskFound)
+        setTask({ title: taskFound.title, description: taskFound.description })
     }
   }, [])
   return (
