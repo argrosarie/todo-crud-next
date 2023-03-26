@@ -4,7 +4,7 @@ import TaskCard from '@/components/TaskCard'
 
 const Page = () => {
   const { tasks } = useTasks()
-  console.log(tasks)
+  
   return (
     <div>
       {tasks.map((task) => (
