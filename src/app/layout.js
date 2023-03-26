@@ -2,6 +2,7 @@ import './globals.css'
 import { TaskProvider } from '@/context/TasksContext'
 import { Navbar } from '@/components/Navbar'
 import { Toaster } from './Toaster'
+import { Layout } from '@/components/Layout'
 
 export const metadata = {
   title: 'ToDoList App by Rosario',
@@ -13,11 +14,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <TaskProvider>
-          <Navbar/>
-          {children}
-          <Toaster/> 
-          </TaskProvider>
-          
+          <Navbar />
+          <Layout>{children}</Layout>
+
+          <Toaster />
+        </TaskProvider>
       </body>
     </html>
   )
