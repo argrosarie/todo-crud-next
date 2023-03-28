@@ -14,10 +14,10 @@ export const Navbar = () => {
         </Link>
         <span className="text-slate-300 text-sm">{tasks.length} tasks</span>
       </div>
-      <div className='mr-5'>
+      <div className='mr-3 p-2'>
         <button
           onClick={() => router.push('/new')}
-          className="bg-green-500 hover:bg-green-400  text-gray-50 font-bold rounded-sm flex items-center"
+          className="bg-green-500 hover:bg-green-400  text-gray-50 font-bold rounded-sm flex items-center p-2"
         >
           Add task
         </button>
